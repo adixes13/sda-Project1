@@ -51,7 +51,25 @@ public class Client {
 
         System.out.println("Dodano lokalizację: " + response);
     }
+    private void addNewLocation() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nazwa miasta:");
+        String name = scanner.nextLine();
+        System.out.print("szerokość geog: ");
+        double latitude = scanner.nextDouble();
+        scanner.nextLine();
+        System.out.print("Długość geog: ");
+        double longitude = scanner.nextDouble();
+        scanner.nextLine();
+        System.out.print("Region: ");
+        String region = scanner.nextLine();
+        System.out.print("Kraj: ");
+        String country = scanner.nextLine();
 
+        String response = locationController.addPersonalData(name, latitude, longitude, region, country);
+        System.out.println("Dodano nową lokalizację" + response);
+
+    }
     private void readWeather() {
 //        String response = entryController.readWeather();
 //        System.out.println("Twoja pogoda: " + response);
