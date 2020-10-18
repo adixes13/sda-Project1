@@ -1,10 +1,14 @@
 package com.sda.weather.client;
 
+import com.sda.weather.application.LocationController;
+
 import java.util.Scanner;
 
 public class Client {
 
-    public static void main(String[] args) {
+    private final LocationController locationController = new LocationController();
+
+    public void runClientInterface() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Witaj w programie WeatherApp");
@@ -28,7 +32,7 @@ public class Client {
         }
     }
 
-    private static void addPersonalData() {
+    private void addPersonalData() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj miasto");
         String cityName = scanner.nextLine();
@@ -43,18 +47,15 @@ public class Client {
         double longitude = scanner.nextDouble();
         scanner.nextLine();
 
+        String response = locationController.addPersonalData(cityName, regionName, countryName, latitude, longitude);
 
-        System.out.println();
-
+        System.out.println("Dodano lokalizację: " + response);
     }
 
-    private static void readWeather() {
-        String response = entryController.readWeather();
-        System.out.println("Twoja pogoda: " + response);
-
+    private void readWeather() {
+//        String response = entryController.readWeather();
+//        System.out.println("Twoja pogoda: " + response);
     }
-
-
 }
 
 
