@@ -51,6 +51,7 @@ public class Client {
 
         System.out.println("Dodano lokalizację: " + response);
     }
+
     private void addNewLocation() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nazwa miasta:");
@@ -66,10 +67,10 @@ public class Client {
         System.out.print("Kraj: ");
         String country = scanner.nextLine();
 
-        String response = locationController.addPersonalData(name, latitude, longitude, region, country);
+        String response = locationController.addPersonalData(name, region, country, latitude, longitude);
         System.out.println("Dodano nową lokalizację" + response);
-
     }
+
     private void readWeather() {
 //        String response = entryController.readWeather();
 //        System.out.println("Twoja pogoda: " + response);
